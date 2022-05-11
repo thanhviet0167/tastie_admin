@@ -32,3 +32,72 @@
     "delivery_mode" : 1,
     "update_at" : "2022-03-15"
 }
+
+// http://:3010/v1/api/tastie/admin/get-all-ecoupon : POST
+{
+    "limit" : 20,
+    "offset" : 1
+}
+
+// User
+
+// http://:3010/v1/api/tastie/admin/get-all-user : POST
+{
+    "limit" : 20,
+    "offset" : 1
+}
+// http://:3010/v1/api/tastie/admin/remove-user/:user_id : PUT
+
+
+// http://:3010/v1/api/tastie/admin/add-user : POST
+{
+    "email": "abcdef@gmail.com",
+    "password": "abcdef",
+    "phone" : "111222333",
+    "first_name" : "abc",
+    "last_name" : "abc",
+    "role" : 1,
+    "registered_at" : "2021-11-11"
+}
+
+// Provider
+
+// http://:3010/v1/api/tastie/admin/get-all-provider : POST
+{
+    "limit" : 20,
+    "offset" : 1
+}
+
+// localhost:3010/v1/api/tastie/admin/get-top-provider-by-revenue : POST
+{
+    "start_month" : 3,
+    "end_month" : 6,
+    "year" : 2022,
+    "limit" : 20
+}
+
+// http://localhost:3010/v1/api/tastie/admin/get-total-revenue-by-time : POST
+{
+    "start_month": 3,
+    "end_month" : 6,
+    "year" : 2022
+}
+
+// http://localhost:3010/v1/api/tastie/admin/get-number-order-by-time : POST
+{
+    "start_month": 3,
+    "end_month" : 6,
+    "year" : 2022
+}
+
+// http://:3010/v1/api/tastie/admin/get-top-provider-by-sales
+{
+    "start_month" : 3,
+    "end_month" : 6,
+    "year" : 2022,
+    "limit" : 20
+}
+
+// http://:3010/v1/api/tastie/admin/statics-of-total-revenue-in-the-last-12-month : GET
+
+// http://:3010/v1/api/tastie/admin/remove-provider/:provider_id : PUT

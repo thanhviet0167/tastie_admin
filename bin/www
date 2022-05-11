@@ -11,7 +11,8 @@ const cors = require('cors')
 // morgan
 
 const morgan = require('morgan');
-const routesAdmin = require("./routes");
+const routesAdmin = require("../src/routes");
+
 
 
 app.use(morgan('combined'))
@@ -30,8 +31,8 @@ app.get('/', (req, res) => res.send("Hello Tastie"))
 
 // router account service
 
-routesAdmin(app)
 
+routesAdmin(app)
 
 
 
