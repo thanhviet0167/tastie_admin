@@ -39,6 +39,22 @@
     "offset" : 1
 }
 
+// localhost:3010/v1/api/tastie/admin/sign-in : POST
+{
+    "email" : "admin123@tastie.com",
+    "password" : "123abc"
+    
+}
+
+// localhost:3010/v1/api/tastie/admin/reset-password : POST
+{
+    "email" : "admin123@tastie.com",
+    "old_password" : "123abc",
+    "new_password" : "123abcde"
+    
+}
+______________________________________________________________________________
+
 // User
 
 // http://:3010/v1/api/tastie/admin/get-all-user : POST

@@ -69,6 +69,33 @@ class AdminModels {
         }
     }
 
+
+    static async signIn(data){
+        try {
+            const {email, password} = data
+            const [[admin_info,__],_] = await host.execute(`CALL Admin_Login('${email}', '${password}');`)
+            
+            return admin_info[0]['admin_id'] ? admin_info[0]['admin_id'] : -1
+        } catch (error) {
+            console.log(error)
+            return -1
+        }
+    }
+
+    static async resetPassword(data){
+        try {
+            const {email, old_password, new_password} = data
+            const admin_id = await this.signIn({email : email, password : old_password})
+            if(admin_id){
+                await host.execute(`UPDATE Tastie.Admin SET password = '${new_password}' WHERE (admin_id = ${admin_id});`)
+                return true
+            }
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
+
     
 }
 

@@ -3,7 +3,7 @@ require("dotenv").config();
 //"user strict"
 
 const jwt = require('jsonwebtoken');
-
+const moment = require('moment');
 
 //
 
@@ -12,6 +12,11 @@ const host = require('../../config/connectMySql')
 
 
 class UserModels {
+
+    static getUpdateAt(){
+        return moment(new Date().toLocaleDateString('vi-VI'), 'DD-MM-YYYY').format('YYYY-MM-DD') + ' ' + new Date().toLocaleTimeString('vi-VI')
+    }
+
     static async getAllUser(data){
         try {
             
@@ -30,7 +35,8 @@ class UserModels {
     static async registerUser(data) {
 
         try {
-            const {phone, password, role, email, first_name, last_name, registered_at} = data
+            const {phone, password, role, email, first_name, last_name} = data
+            const registered_at = this.getUpdateAt()
             let sqlStoredProcedure = `CALL AccountRegistration ('${phone}', '${password}', '${role}', 
             '${email}', '${first_name}', '${last_name}', 1, '${registered_at}', '${registered_at}')`
 
@@ -39,7 +45,7 @@ class UserModels {
             return true
         } catch (error) {
             
-
+            console.log(error)
             return false
         }
         

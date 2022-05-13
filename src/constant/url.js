@@ -1,6 +1,8 @@
 const url_add_ecoupon = '/v1/api/tastie/admin/add-ecoupon'
 const url_update_ecoupon = '/v1/api/tastie/admin/update-ecoupon'
 const url_get_all_ecoupon = '/v1/api/tastie/admin/get-all-ecoupon'
+const url_admin_login = '/v1/api/tastie/admin/sign-in'
+const url_admin_reset_password = '/v1/api/tastie/admin/reset-password'
 
 // user
 
@@ -32,5 +34,7 @@ module.exports = {
     url_get_total_revenue__by_time,
     url_get_number_order__by_time,
     url_get_top_provider_by_sales,
-    url_staticsRevenue
+    url_staticsRevenue,
+    url_admin_login,
+    url_admin_reset_password
 }
