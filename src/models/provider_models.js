@@ -16,7 +16,7 @@ class ProviderModels {
         try {
 
             const {limit, offset} = data
-                let sqlGetAllProvider = `SELECT * FROM provider;`
+                let sqlGetAllProvider = `SELECT * FROM Provider;`
                 const [result, _] = await host.execute(sqlGetAllProvider)
 
                 return result.slice( offset - 1  === 0 ? offset-1 : limit*(offset-1), offset*limit <= result.length ? offset*limit : offset*limit-1)
