@@ -76,6 +76,8 @@ ______________________________________________________________________________
     "registered_at" : "2021-11-11"
 }
 
+http://:3010/v1/api/tastie/admin/filter-user-by-keyword/:key
+
 // Provider
 
 // http://:3010/v1/api/tastie/admin/get-all-provider : POST
@@ -117,3 +119,5 @@ ______________________________________________________________________________
 // http://:3010/v1/api/tastie/admin/statics-of-total-revenue-in-the-last-12-month : GET
 
 // http://:3010/v1/api/tastie/admin/remove-provider/:provider_id : PUT
+
+http://:3010/v1/api/tastie/admin/filter-provider-by-keyword/:key

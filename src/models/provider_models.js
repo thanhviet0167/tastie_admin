@@ -151,21 +151,42 @@ class ProviderModels {
     static async statisticsOfTotalRevenueInTheLastTwentyMonths(){
         try {
             var listMonth = this.getTwentyMonth()
+            var listTotalRevenueByTime = await host.execute(`SELECT * FROM Get_Total_Revenue_By_Time_Table;`)
+            var listNumberOrderByTime = await host.execute(`SELECT * FROM Get_Num_Orders_By_Time_Table;`)
             var response = []
             for(var i = 0; i < listMonth.length; i++){
-                let totalRevenue = await this.getTotalRevenueByTime(listMonth[i])
-                let numberOrder = await this.getNumberOrderByTime(listMonth[i])
+                var a = []
+                let indexTotalRevenue = listTotalRevenueByTime[0].findIndex(total_revenue => {
+                    return (listMonth[i]['start_month'] === total_revenue['month'] && listMonth[i]['year'] === total_revenue['year'])
+                })
+
+                let indexNumberOrder = listNumberOrderByTime[0].findIndex(number_order => {
+                    return (listMonth[i]['start_month'] === number_order['month'] && listMonth[i]['year'] === number_order['year'])
+                })
                 response.push({
                     month : listMonth[i]['start_month'],
                     year : listMonth[i]['year'],
-                    totalRevenue : totalRevenue[0]['total_revenue'],
-                    numberOrder : numberOrder[0]['total_num_orders'],
+                    totalRevenue : listTotalRevenueByTime[0][indexTotalRevenue]['total_revenue'],
+                    numberOrder : listNumberOrderByTime[0][indexNumberOrder]['total_num_orders'],
                 })
             }
             return response
 
         } catch (error) {
             return []   
+        }
+    }
+
+
+    static async filterProviderByKey(key){
+        try {
+            const [result, _] = await host.execute(`CALL Filter_Provider_By_Name('${key}');`)
+
+            return result[0]
+        } catch (error) {
+            
+
+            return []
         }
     }
 }

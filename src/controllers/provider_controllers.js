@@ -162,6 +162,27 @@ class ProviderControllers {
         }
     }
 
+
+    static filterProviderByKey = async (req, res) => {
+        try {
+
+            const key = req.params.key
+            const result = await ProviderModels.filterProviderByKey(key)
+           
+            res.status(200).json({
+                status : true,
+                response : result
+            })
+
+        } catch (error) {
+            console.log(error)
+            res.status(404).json({
+                status : false,
+                response: []
+            })
+        }
+    }
+
 }
 
 module.exports = ProviderControllers

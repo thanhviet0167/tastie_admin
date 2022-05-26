@@ -20,10 +20,22 @@ class UserModels {
     static async getAllUser(data){
         try {
             
-            const {limit, offset} = data
+            const {limit, offset, name} = data
             let sqlGetAllUser = `SELECT * FROM User;`
-            const [result, _] = await host.execute(sqlGetAllUser)
+            var [result, _] = await host.execute(sqlGetAllUser)
             
+            // if(name.length > 0){
+                
+            //     result = result.filter(user => {
+            //         var user_name = user['first_name']+ ' ' + user['last_name']
+                    
+            //         console.log(user_name)
+            //         console.log(name)
+            //         user_name = user_name.toLowerCase()
+            //         return user_name.includes(name.toLowerCase())
+            //     })
+            // }
+
             return result.slice( offset - 1  === 0 ? offset-1 : limit*(offset-1), offset*limit <= result.length ? offset*limit : offset*limit-1)
             
         } catch (error) {
@@ -76,6 +88,18 @@ class UserModels {
         } catch (error) {
             console.log(error)
             return false
+        }
+    }
+
+    static async filterUserByKey(key){
+        try {
+            const [result, _] = await host.execute(`CALL Filter_User_Name('${key}');`)
+
+            return result[0]
+        } catch (error) {
+            
+
+            return []
         }
     }
 }

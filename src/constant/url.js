@@ -9,6 +9,7 @@ const url_admin_reset_password = '/v1/api/tastie/admin/reset-password'
 const url_get_all_user = '/v1/api/tastie/admin/get-all-user'
 const url_add_user = '/v1/api/tastie/admin/add-user'
 const url_remove_user = '/v1/api/tastie/admin/remove-user/:user_id'
+const url_filter_user_by_key_search = '/v1/api/tastie/admin/filter-user-by-keyword/:key'
 
 // provider
 const url_get_all_provider = '/v1/api/tastie/admin/get-all-provider'
@@ -19,6 +20,8 @@ const url_get_total_revenue__by_time = '/v1/api/tastie/admin/get-total-revenue-b
 const url_get_number_order__by_time = '/v1/api/tastie/admin/get-number-order-by-time'
 const url_get_top_provider_by_sales = '/v1/api/tastie/admin/get-top-provider-by-sales'
 const url_staticsRevenue = '/v1/api/tastie/admin/statics-of-total-revenue-in-the-last-12-month'
+
+const url_filter_provider_by_key_search = '/v1/api/tastie/admin/filter-provider-by-keyword/:key'
 
 module.exports = {
     url_add_ecoupon,
@@ -36,5 +39,7 @@ module.exports = {
     url_get_top_provider_by_sales,
     url_staticsRevenue,
     url_admin_login,
-    url_admin_reset_password
+    url_admin_reset_password,
+    url_filter_user_by_key_search,
+    url_filter_provider_by_key_search
 }
