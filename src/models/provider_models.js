@@ -18,9 +18,13 @@ class ProviderModels {
             const {limit, offset} = data
                 let sqlGetAllProvider = `SELECT * FROM Provider;`
                 const [result, _] = await host.execute(sqlGetAllProvider)
+                const total_provider = result.length
+                const list_provider =  result.slice( offset - 1  === 0 ? offset-1 : limit*(offset-1), offset*limit <= result.length ? offset*limit : offset*limit-1)
 
-                return result.slice( offset - 1  === 0 ? offset-1 : limit*(offset-1), offset*limit <= result.length ? offset*limit : offset*limit-1)
-
+            return {
+                total_provider,
+                list_provider
+            }
             
         } catch (error) {
             console.log(error)

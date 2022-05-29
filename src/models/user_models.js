@@ -35,8 +35,13 @@ class UserModels {
             //         return user_name.includes(name.toLowerCase())
             //     })
             // }
+            const total_user = result.length
+            const list_user =  result.slice( offset - 1  === 0 ? offset-1 : limit*(offset-1), offset*limit <= result.length ? offset*limit : offset*limit-1)
 
-            return result.slice( offset - 1  === 0 ? offset-1 : limit*(offset-1), offset*limit <= result.length ? offset*limit : offset*limit-1)
+            return {
+                total_user,
+                list_user
+            }
             
         } catch (error) {
             console.log(error)
