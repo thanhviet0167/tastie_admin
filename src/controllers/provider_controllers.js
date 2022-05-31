@@ -183,6 +183,42 @@ class ProviderControllers {
         }
     }
 
+    static getListRequiredProvider = async (req, res) => {
+        try {
+            
+            const response = await ProviderModels.getListRequiredProvider()
+           
+            res.status(200).json({
+                status : true,
+                response
+            })
+
+        } catch (error) {
+            console.log(error)
+            res.status(404).json({
+                status : false,
+                response: []
+            })
+        }
+    }
+
+    static responseRequestFromProvider = async (req, res) => {
+        try {
+            
+            const status = await ProviderModels.responseRequestFromProvider(req.body)
+           
+            res.status(200).json({
+                status
+            })
+
+        } catch (error) {
+            console.log(error)
+            res.status(404).json({
+                status : false
+            })
+        }
+    }
+
 }
 
 module.exports = ProviderControllers

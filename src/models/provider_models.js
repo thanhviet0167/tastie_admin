@@ -193,6 +193,27 @@ class ProviderModels {
             return []
         }
     }
+
+    static async getListRequiredProvider(){
+        try {
+            const [list_provider, _] = await host.execute('SELECT * FROM Tastie.Provider WHERE status = 0')
+            return list_provider
+        } catch (error) {
+            console.log(error)
+            return []
+        }
+    }
+
+    static async responseRequestFromProvider(data){
+        try {
+            const {provider_id, status} = data
+            await host.execute(`CALL Admin_Response_Provider_Request(${provider_id}, ${status})`)
+            return true
+        } catch (error) {
+            console.log(error)
+            return false
+        }
+    }
 }
 
 module.exports = ProviderModels

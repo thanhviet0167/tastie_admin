@@ -120,4 +120,12 @@ http://:3010/v1/api/tastie/admin/filter-user-by-keyword/:key
 
 // http://:3010/v1/api/tastie/admin/remove-provider/:provider_id : PUT
 
-http://:3010/v1/api/tastie/admin/filter-provider-by-keyword/:key
+// http://:3010/v1/api/tastie/admin/filter-provider-by-keyword/:key
+
+// http://:3010/v1/api/tastie/admin/get-list-required-provider
+
+// http://:3010/v1/api/tastie/admin/respond-to-requests-from-provider
+{
+     "provider_id": 1000025,
+     "status" : 1
+}

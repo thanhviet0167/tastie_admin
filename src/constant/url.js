@@ -23,6 +23,9 @@ const url_staticsRevenue = '/v1/api/tastie/admin/statics-of-total-revenue-in-the
 
 const url_filter_provider_by_key_search = '/v1/api/tastie/admin/filter-provider-by-keyword/:key'
 
+const url_get_list_required_provider = '/v1/api/tastie/admin/get-list-required-provider'
+const url_response_request_provider = '/v1/api/tastie/admin/respond-to-requests-from-provider'
+
 module.exports = {
     url_add_ecoupon,
     url_update_ecoupon,
@@ -41,5 +44,7 @@ module.exports = {
     url_admin_login,
     url_admin_reset_password,
     url_filter_user_by_key_search,
-    url_filter_provider_by_key_search
+    url_filter_provider_by_key_search,
+    url_get_list_required_provider,
+    url_response_request_provider
 }
